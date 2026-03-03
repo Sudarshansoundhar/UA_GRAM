@@ -1,0 +1,31 @@
+// Cyberbullying Detection and Prevention Flowchart
+digraph {
+	A [label="User Input
+(Social Media Post / Message)"]
+	B [label="Preprocessing
+(Language Detection, Tokenization,
+Stopword Removal, Normalization)"]
+	C [label="Feature Extraction
+(Word Embeddings, MURIL/IndicBERT,
+Multilingual Representations)"]
+	D [label="Cyberbullying Detection Model
+(Base: EnsMulHateCyb Ensemble - BiLSTM, GRU, CNN, LSTM)"]
+	E1 [label="Non-Bullying
+(Post Allowed)"]
+	E2 [label="Bullying Detected
+(Real-time Action Triggered)"]
+	F1 [label="Warning Message to User
+(\"This text may be offensive\")"]
+	F2 [label="Suggestion / Rephrase Option
+(Explainable AI Guidance)"]
+	F3 [label="Block/Report Option
+(Policy Enforcement)"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E1 [label=No]
+	D -> E2 [label=Yes]
+	E2 -> F1
+	E2 -> F2
+	E2 -> F3
+}
